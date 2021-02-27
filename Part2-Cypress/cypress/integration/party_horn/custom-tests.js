@@ -78,5 +78,11 @@ describe('Party Horn Tests', () => {
     cy.get('input:invalid').then(function($invalidInputs) {
       expect($invalidInputs).to.have.value('150')
     })
+
+    cy.get('#volume-number').clear().type('-50');
+    cy.get('#honk-btn').click();
+    cy.get('input:invalid').then(function($invalidInputs) {
+      expect($invalidInputs).to.have.value('-50')
+    })
   });
 });
